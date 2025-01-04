@@ -231,7 +231,7 @@ body {
     color: #fff;
   }
 
-  /* Dark Mode Styles */
+  /* General Dark Mode Styles */
 body.dark-mode {
     background-color: #121212;
     color: #f1f1f1;
@@ -242,6 +242,7 @@ body.dark-mode {
     color: #f1f1f1;
   }
   
+  /* Inputs and Dropdowns */
   body.dark-mode input,
   body.dark-mode select {
     background-color: #444;
@@ -249,6 +250,13 @@ body.dark-mode {
     border: 1px solid #666;
   }
   
+  body.dark-mode input:focus,
+  body.dark-mode select:focus {
+    border: 1px solid #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Buttons */
   body.dark-mode button {
     background-color: #555;
     color: #f1f1f1;
@@ -257,6 +265,116 @@ body.dark-mode {
   body.dark-mode button:hover {
     background-color: #777;
   }
+  
+  /* Results Section */
+  body.dark-mode #results {
+    background-color: #444;
+    color: #f1f1f1;
+  }
+  
+  /* Dropdown Menu */
+  body.dark-mode .dropdown {
+    background-color: #444;
+    border: 1px solid #666;
+  }
+  
+  body.dark-mode .dropdown button {
+    background-color: #444;
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode .dropdown button:hover {
+    background-color: #555;
+  }
+  
+
+  section {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  section h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+  }
+  
+  section p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  section ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  
+  section ul li {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+/* Dark Mode for Formula Library */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode p,
+body.dark-mode ul li {
+  color: #f1f1f1;
+}
+
+body.dark-mode section {
+  background-color: #333;
+  border: 1px solid #444;
+}
+
+body.dark-mode section h2 {
+  color: #007bff;
+}
+
+body.dark-mode button {
+  background-color: #555;
+  color: #f1f1f1;
+}
+
+body.dark-mode button:hover {
+  background-color: #777;
+}
+
+/* Link styles for dark mode */
+body.dark-mode a {
+  color: #007bff;
+}
+
+body.dark-mode a:hover {
+  color: #00aaff;
+}
+
+  
   
   
   

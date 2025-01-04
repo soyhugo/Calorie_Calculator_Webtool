@@ -14,14 +14,27 @@ document.getElementById('menuIcon').addEventListener('click', function () {
   });
   
   // Dark Mode Toggle
-  document.getElementById('darkModeToggle').addEventListener('click', function () {
+document.getElementById('darkModeToggle').addEventListener('click', function () {
     document.body.classList.toggle('dark-mode');
+    
+    // Save mode in localStorage
+    const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('mode', mode);
+  });
+  
+  // Apply mode on page load
+  document.addEventListener('DOMContentLoaded', function () {
+    const mode = localStorage.getItem('mode');
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
   });
   
   // Redirect to Formula Library
   document.getElementById('formulaLibrary').addEventListener('click', function () {
-    window.location.href = 'https://example.com/formula-library'; // Replace with the actual URL
+    window.location.href = 'formulas.html';
   });
+  
   
   // Form submission functionality
   document.getElementById('calorieForm').addEventListener('submit', function (e) {
