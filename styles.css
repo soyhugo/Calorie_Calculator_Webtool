@@ -1,5 +1,6 @@
-/* General Styles */
-body {
+  /* General Styles */
+
+  body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     background-color: #f9f9f9;
@@ -11,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
   }
+  
   
   .container {
     width: 90%; /* Adjust the width as necessary */
