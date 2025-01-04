@@ -177,4 +177,86 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+
+  /* Menu Styles */
+.menu {
+    position: relative;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /* Updated Dropdown Styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .dropdown.open {
+    display: block;
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .dropdown button:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode .container {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode input,
+  body.dark-mode select {
+    background-color: #444;
+    color: #f1f1f1;
+    border: 1px solid #666;
+  }
+  
+  body.dark-mode button {
+    background-color: #555;
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode button:hover {
+    background-color: #777;
+  }
+  
+  
   
