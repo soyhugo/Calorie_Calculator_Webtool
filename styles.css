@@ -4,104 +4,141 @@ body {
     text-align: center;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 20px;
-    color: #333;
+    padding: 0;
+    height: 100vh; /* Ensures the body fits the viewport height */
+    overflow: hidden; /* Prevents scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  /* Container */
   .container {
-    max-width: 600px;
-    margin: auto;
-    background: #fff;
-    padding: 30px;
+    width: 90%; /* Adjust the width as necessary */
+    height: 90%; /* Ensure the container fits within the viewport */
+    background: #333;
+    padding: 10px; /* Minimized padding to save space */
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Headings */
   h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    color: #fff;
+    margin-bottom: 10px; /* Reduce margin to save space */
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%; /* Ensure content fills the container height */
+  }
+  
+  /* Input Section */
+  .input-section {
+    width: 45%;
+    background: #444;
+    padding: 10px; /* Minimize padding to save space */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent content overflow */
+  }
+  
+  .input-section label {
+    display: block; /* Ensure labels are on their own line */
+    font-size: 1rem; /* Consistent font size */
+    color: #fff; /* Match other labels' colors */
+    margin-bottom: 5px; /* Add spacing between label and input */
+  }
+  
+  .input-section input {
+    width: 90%; /* Consistent width with other inputs */
+    padding: 10px; /* Same padding as other inputs */
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    margin-bottom: 10px; /* Add consistent spacing below */
+    box-sizing: border-box; /* Include padding in width */
+  }
+  
+  
+  .input-section select {
+    width: auto;
+    padding: 5px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+  }
+
+  .input-section div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center; /* Center the input horizontally */
+}
+
+
+  .gender-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .gender-section label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .gender-section input[type="radio"] {
+    width: 18px;
+    height: 18px; /* Larger size for better usability */
+    cursor: pointer;
+  }
+  
+
+  
+  /* Results Section */
+  .results-section {
+    width: 45%;
+    background: #f1f1f1;
+    padding: 10px; /* Minimize padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: left;
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  .results-section h2 {
     color: #007bff;
   }
   
-  h2 {
-    font-size: 1.8rem;
-    margin-top: 30px;
-    color: #333;
+  .results-section p {
+    font-size: 1.2rem;
+    margin: 5px 0; /* Adjust margin for better fit */
   }
   
-  /* Labels and Inputs */
-  form label {
-    display: block;
-    margin: 15px 0 5px;
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  form input, form select {
-    width: calc(100% - 20px);
-    padding: 12px 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #f9f9f9;
-    font-size: 1rem;
-    color: #333;
-    transition: all 0.3s ease;
-  }
-  
-  form input:focus, form select:focus {
-    border: 1px solid #007bff;
-    background: #fff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  /* Gender Radio Buttons */
-  form div {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px 0;
-  }
-  
-  form input[type="radio"] {
-    display: none;
-  }
-  
-  form label[for="male"], form label[for="female"] {
-    background: #f9f9f9;
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  form input[type="radio"]:checked + label {
-    background: #007bff;
-    color: #fff;
-    border: 1px solid #007bff;
-  }
-  
-  /* Buttons */
   button {
-    display: inline-block;
     width: 100%;
-    padding: 12px;
-    margin-top: 15px;
+    padding: 10px; /* Adjust padding for better fit */
     background: #007bff;
     color: #fff;
     font-size: 1rem;
-    font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s;
   }
   
   button:hover {
-    background: #0056b3;
+    background-color: #0056b3;
   }
   
   .unit-toggle button {
@@ -179,20 +216,30 @@ body {
   }
 
   /* Menu Styles */
-.menu {
-    position: relative;
-    text-align: left;
-    padding: 10px;
+  .menu {
+    position: absolute; /* Position the menu relative to the viewport */
+    top: 10px;          /* Place it at the top */
+    left: 10px;         /* Place it on the left */
+    z-index: 1000;      /* Ensure it appears above other elements */
   }
   
-  .menu-icon {
+/* Default Light Mode Menu Icon */
+.menu-icon {
     font-size: 24px;
     cursor: pointer;
-    user-select: none;
+    color: #333; /* Dark color for light mode */
+    transition: color 0.3s ease; /* Smooth transition for color change */
   }
   
+  /* Dark Mode Menu Icon */
+  body.dark-mode .menu-icon {
+    color: #f1f1f1; /* Light color for dark mode */
+  }
+  
+  
+  
   /* Updated Dropdown Styles */
-.dropdown {
+  .dropdown {
     display: none;
     position: absolute;
     top: 40px;
@@ -232,45 +279,64 @@ body {
   }
 
   /* General Dark Mode Styles */
-body.dark-mode {
-    background-color: #121212;
-    color: #f1f1f1;
-  }
-  
-  body.dark-mode .container {
-    background-color: #333;
-    color: #f1f1f1;
-  }
-  
-  /* Inputs and Dropdowns */
-  body.dark-mode input,
-  body.dark-mode select {
-    background-color: #444;
-    color: #f1f1f1;
-    border: 1px solid #666;
-  }
-  
-  body.dark-mode input:focus,
-  body.dark-mode select:focus {
-    border: 1px solid #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  /* Buttons */
-  body.dark-mode button {
-    background-color: #555;
-    color: #f1f1f1;
-  }
-  
-  body.dark-mode button:hover {
-    background-color: #777;
-  }
-  
-  /* Results Section */
-  body.dark-mode #results {
-    background-color: #444;
-    color: #f1f1f1;
-  }
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #222; /* Ensure consistent dark background */
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark-mode button {
+  background-color: #444; /* Fix gray color issue */
+  color: #f1f1f1;
+}
+
+body.dark-mode button:hover {
+  background-color: #555;
+}
+
+/* Ensure results text color stays consistent */
+body.dark-mode #results {
+  background-color: #444; /* Maintain dark background */
+  color: #f1f1f1; /* Ensure text color remains readable */
+}
+
+body.dark-mode #results p {
+  color: #f1f1f1; /* Ensure text inside results remains consistent */
+}
+
+/* Light mode improvements for user-friendliness */
+body {
+  background-color: #ffffff; /* Pure white background for light mode */
+  color: #333333; /* Neutral dark grey for text */
+}
+
+input,
+select {
+  background-color: #f9f9f9; /* Light grey for inputs */
+  color: #333333; /* Neutral dark grey text */
+  border: 1px solid #dddddd; /* Light border for inputs */
+}
+
+button {
+  background-color: #e0e0e0; /* Light grey for buttons */
+  color: #333333; /* Neutral dark grey for button text */
+}
+
+button:hover {
+  background-color: #cccccc; /* Slightly darker grey on hover */
+}
+
+#results {
+  background-color: #f9f9f9; /* Light grey for results background */
+  color: #333333; /* Neutral dark grey for text */
+}
+
+#results p {
+  color: #666666; /* Subtle grey for detailed results */
+}
+
+
   
   /* Dropdown Menu */
   body.dark-mode .dropdown {
@@ -373,6 +439,8 @@ body.dark-mode a {
 body.dark-mode a:hover {
   color: #00aaff;
 }
+
+  
 
   
   
