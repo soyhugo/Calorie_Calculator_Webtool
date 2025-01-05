@@ -355,9 +355,35 @@ button:hover {
     background-color: #555;
   }
   
-
+  .formula-container {
+    width: 90%;
+    background: #333;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+  
   section {
-    margin-top: 20px;
     padding: 20px;
     background: #f9f9f9;
     border-radius: 10px;
@@ -372,28 +398,23 @@ button:hover {
   section p {
     font-size: 1rem;
     color: #333;
+    margin-bottom: 10px;
   }
   
   section ul {
+    list-style-type: disc;
     margin-top: 10px;
     padding-left: 20px;
-    list-style-type: disc;
-  }
-  
-  section ul li {
-    font-size: 1rem;
     color: #555;
   }
   
   button {
-    display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
   }
@@ -401,6 +422,15 @@ button:hover {
   button:hover {
     background-color: #0056b3;
   }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    .formula-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+
 
 /* Dark Mode for Formula Library */
 body.dark-mode {
