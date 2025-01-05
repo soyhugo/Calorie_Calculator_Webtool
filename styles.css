@@ -55,7 +55,7 @@
   .input-section {
     width: 100%; /* Adjust width to prevent overlap */
     max-width: 600px; /* Optional: set a max-width for better layout */
-    margin: 0 auto; /* Center the input section */
+    margin: 20px auto 0; /* Add top margin to create space */
     background: #444;
     padding: 20px; /* Increase padding */
     border-radius: 10px;
@@ -168,6 +168,7 @@
     overflow: hidden; /* Prevent overflow */
     height: calc(100vh - 200px); /* Adjust based on your header/footer height */
     overflow-y: auto; /* Allow scrolling if content overflows */
+    margin-left: 20px; /* Add margin to the left */
   }
   
   .results-section h2 {
@@ -588,6 +589,7 @@ body.dark-mode a:hover {
   color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: 20px; /* Add margin to the left */
 }
 
 .results-section h2 {
@@ -601,5 +603,91 @@ body.dark-mode a:hover {
 .results-section {
   flex: 1; /* Ensure both sections take up equal space */
   max-width: 45%; /* Ensure both sections have the same maximum width */
+}
+
+.bmi-section {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bmi-section h2 {
+  color: #007bff;
+}
+
+.bmi-section p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.calorie-adjustment-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.calorie-adjustment-buttons button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calorie-adjustment-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.maintenance-section {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.maintenance-section h2 {
+  color: #007bff;
+}
+
+.maintenance-section p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.maintenance-section p strong {
+  font-size: 1.5rem; /* Increase font size */
+}
+
+.bmi-section p strong {
+  font-size: 1.5rem; /* Increase font size */
+}
+
+.adjusted-calories-section {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.adjusted-calories-section h2 {
+  color: #007bff;
+}
+
+.adjusted-calories-section p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.adjusted-calories-section p strong {
+  font-size: 1.5rem; /* Increase font size */
 }
 

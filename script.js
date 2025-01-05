@@ -129,10 +129,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const maintenanceCalories = bmr * activity;
 
-    document.getElementById('results').innerHTML = `
-      <h2>Your Results</h2>
-      <p>Maintenance Calories: <strong>${maintenanceCalories.toFixed(2)}</strong> kcal</p>
-    `;
+    const bmi = calculateBMI(weight, height, false);
+    const bmiClassification = classifyBMI(bmi);
+
+    updateResults(maintenanceCalories, bmi, bmiClassification);
   }
 
   function calculateMetric() {
@@ -154,10 +154,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const maintenanceCalories = bmr * activity;
 
+    const bmi = calculateBMI(weight, height, true);
+    const bmiClassification = classifyBMI(bmi);
+
+    updateResults(maintenanceCalories, bmi, bmiClassification);
+  }
+
+  function calculateBMI(weight, height, isMetric) {
+    if (!isMetric) {
+      weight = weight / 2.20462; // Convert lbs to kg
+      height = height * 2.54; // Convert inches to cm
+    }
+    height = height / 100; // Convert cm to meters
+    return weight / (height * height);
+  }
+
+  function classifyBMI(bmi) {
+    if (bmi <= 18.5) return 'Underweight';
+    if (bmi <= 24.99) return 'Normal Weight';
+    if (bmi <= 29.99) return 'Overweight';
+    return 'Obese';
+  }
+
+  function updateResults(maintenanceCalories, bmi, bmiClassification) {
     document.getElementById('results').innerHTML = `
-      <h2>Your Results</h2>
-      <p>Maintenance Calories: <strong>${maintenanceCalories.toFixed(2)}</strong> kcal</p>
+      <div class="maintenance-section" id="maintenanceSection">
+        <h2>Maintenance Calories</h2>
+        <p><strong>${maintenanceCalories.toFixed(2)}</strong> kcal</p>
+      </div>
+      <div class="bmi-section" id="bmiSection">
+        <h2>BMI Score: <strong>${bmi.toFixed(2)}</strong></h2>
+        <p>Your BMI is <strong>${bmi.toFixed(2)}</strong>, which means you are classified as <strong>${bmiClassification}</strong>.</p>
+      </div>
+      <div class="calorie-adjustment-buttons">
+        <button id="cuttingButton">Cutting (-500 kcal)</button>
+        <button id="bulkingButton">Bulking (+500 kcal)</button>
+      </div>
+      <div class="adjusted-calories" id="adjustedCaloriesSection"></div>
     `;
+
+    document.getElementById('cuttingButton').addEventListener('click', function () {
+      const newCalories = maintenanceCalories - 500;
+      document.getElementById('adjustedCaloriesSection').innerHTML = `<p>Your new calorie goal for cutting is <strong>${newCalories.toFixed(2)}</strong> kcal.</p>`;
+    });
+
+    document.getElementById('bulkingButton').addEventListener('click', function () {
+      const newCalories = maintenanceCalories + 500;
+      document.getElementById('adjustedCaloriesSection').innerHTML = `<p>Your new calorie goal for bulking is <strong>${newCalories.toFixed(2)}</strong> kcal.</p>`;
+    });
   }
 
   document.getElementById('calorieForm').addEventListener('submit', function (e) {
