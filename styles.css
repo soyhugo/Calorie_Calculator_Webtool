@@ -1,4 +1,4 @@
-  /* General Styles */
+/* General Styles */
 
   body {
     font-family: 'Arial', sans-serif;
@@ -15,15 +15,27 @@
   
   
   .container {
-    width: 90%; /* Adjust the width as necessary */
-    height: 90%; /* Ensure the container fits within the viewport */
+    width: 92%; /* Adjust the width as necessary */
+    height: 92%; /* Ensure the container fits within the viewport */
     background: #333;
     padding: 10px; /* Minimized padding to save space */
     border-radius: 15px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* Change to row to align sections horizontally */
+    align-items: flex-start; /* Align items to the top */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Adjust width as necessary */
+  }
+
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Increase width */
   }
   
   h1 {
@@ -41,9 +53,11 @@
   
   /* Input Section */
   .input-section {
-    width: 45%;
+    width: 100%; /* Adjust width to prevent overlap */
+    max-width: 600px; /* Optional: set a max-width for better layout */
+    margin: 0 auto; /* Center the input section */
     background: #444;
-    padding: 10px; /* Minimize padding to save space */
+    padding: 20px; /* Increase padding */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Prevent content overflow */
@@ -58,38 +72,54 @@
   
   .input-section input {
     width: 90%; /* Consistent width with other inputs */
-    padding: 10px; /* Same padding as other inputs */
+    padding: 12px; /* Increased padding */
     border: 1px solid #555;
-    border-radius: 5px;
+    border-radius: 8px; /* Rounded corners */
     background: #222;
     color: #fff;
     margin-bottom: 10px; /* Add consistent spacing below */
     box-sizing: border-box; /* Include padding in width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   }
   
+  .input-section input::placeholder {
+    color: #888; /* Lighter color for placeholder */
+  }
   
   .input-section select {
-    width: auto;
-    padding: 5px;
+    width: 100%;
+    padding: 10px; /* Increased padding */
     border: 1px solid #555;
-    border-radius: 5px;
+    border-radius: 8px; /* Rounded corners */
     background: #222;
     color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  .input-section select:hover {
+    background-color: #333; /* Hover effect */
   }
 
   .input-section div {
     display: flex;
     gap: 10px;
     align-items: center;
-    justify-content: center; /* Center the input horizontally */
+    justify-content: space-between; /* Adjust to space between elements */
 }
 
+#imperialInputs input,
+#imperialInputs select {
+  width: 48%; /* Ensure weight and height inputs occupy half each */
+}
 
   .gender-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 10px;
+    border: 1px solid #555; /* Border around gender options */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside the container */
   }
   
   .gender-section label {
@@ -104,18 +134,40 @@
     cursor: pointer;
   }
   
-
+  .gender-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .gender-button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .gender-button:hover {
+    background-color: #0056b3;
+    color: white;
+  }
   
   /* Results Section */
   .results-section {
-    width: 45%;
+    flex: 1; /* Ensure the results section takes up remaining space */
     background: #f1f1f1;
-    padding: 10px; /* Minimize padding */
+    padding: 20px; /* Increase padding */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     color: #333;
     text-align: left;
     overflow: hidden; /* Prevent overflow */
+    height: calc(100vh - 200px); /* Adjust based on your header/footer height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
   }
   
   .results-section h2 {
@@ -125,22 +177,24 @@
   .results-section p {
     font-size: 1.2rem;
     margin: 5px 0; /* Adjust margin for better fit */
+    font-weight: bold; /* Bold calorie number */
   }
   
   button {
     width: 100%;
-    padding: 10px; /* Adjust padding for better fit */
+    padding: 12px; /* Adjust padding */
     background: #007bff;
     color: #fff;
     font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Rounded corners */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
   }
   
   button:hover {
     background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hover effect */
   }
   
   .unit-toggle button {
@@ -154,6 +208,12 @@
     transition: all 0.3s ease;
   }
   
+  .unit-toggle button.active {
+    background-color: #007bff; /* Active background color */
+    color: #fff;
+    border: 1px solid #007bff;
+  }
+
   .unit-toggle button:hover {
     background: #007bff;
     color: #fff;
@@ -251,6 +311,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
+    width: 200px; /* Increase width */
   }
   
   .dropdown.open {
@@ -356,80 +417,80 @@ button:hover {
   }
   
   .formula-container {
-    width: 90%;
-    background: #333;
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    color: #ccc;
-    margin-bottom: 20px;
-  }
-  
+  width: 90%;
+  background: #333;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+section {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+section p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+section ul {
+  list-style-type: disc;
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #555;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
   .formula-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    width: 100%;
+    grid-template-columns: 1fr;
   }
-  
-  section {
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  section h2 {
-    font-size: 1.5rem;
-    color: #007bff;
-  }
-  
-  section p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  section ul {
-    list-style-type: disc;
-    margin-top: 10px;
-    padding-left: 20px;
-    color: #555;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 600px) {
-    .formula-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}
+
 
 
 /* Dark Mode for Formula Library */
@@ -472,9 +533,62 @@ body.dark-mode a:hover {
   color: #00aaff;
 }
 
-  
+/* Unit Converter Styles */
+.unit-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 
-  
-  
-  
-  
+.unit-tabs button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: #ddd;
+  color: #333;
+}
+
+.unit-tabs button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.unit-inputs.hidden {
+  display: none;
+}
+
+.unit-inputs {
+  margin-top: 10px;
+}
+
+.gender-section {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.results-section {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.results-section h2 {
+  color: #007bff;
+}
+
+.results-section p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.results-section {
+  flex: 1; /* Ensure both sections take up equal space */
+  max-width: 45%; /* Ensure both sections have the same maximum width */
+}
+

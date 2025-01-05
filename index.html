@@ -1,95 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-mode">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calorie Calculator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="dark-mode">
   <div class="menu">
     <div class="menu-icon" id="menuIcon">&#9776;</div>
     <div class="dropdown" id="menuDropdown">
-      <button id="darkModeToggle">Dark Mode</button>
+      <button id="darkModeToggle">Change Lighting Mode</button>
       <button id="formulaLibrary">Formula Library</button>
     </div>
   </div>
-  
+
   <div class="container">
-    <h1>Calorie Calculator</h1>
-    <div class="content">
-      <!-- Input Form -->
-      <div class="input-section">
-        <form id="calorieForm">
-            <label for="age">Age:</label>
-            <div>
-              <input type="number" id="age" min="1" required>
-            </div>
-            
-            
-          
-          <label>Gender:</label>
-          <div class="gender-section">
-            <label>
-              <input type="radio" id="male" name="gender" value="male" required>
-              Male
-            </label>
-            <label>
-              <input type="radio" id="female" name="gender" value="female">
-              Female
-            </label>
-          </div>
-          
-          
-          
-  
+    <div class="input-wrapper">
+      <h1>Calorie Calculator</h1>
+
+      <!-- Tabs for Units -->
+      <div class="unit-tabs">
+        <button id="imperialTab" class="active">Imperial</button>
+        <button id="metricTab">Metric</button>
+      </div>
+
+      <!-- Input Form Section -->
+      <form id="calorieForm" class="input-section">
+        <!-- Age -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" min="1" placeholder="Enter your age" required>
+
+        <!-- Gender -->
+        <label>Gender:</label>
+        <div class="gender-section">
+          <button type="button" id="maleButton" class="gender-button active" data-gender="male">Male</button>
+          <button type="button" id="femaleButton" class="gender-button" data-gender="female">Female</button>
+          <input type="hidden" id="gender" name="gender" value="male" required>
+        </div>
+
+        <!-- Imperial Inputs -->
+        <div id="imperialInputs" class="unit-inputs">
+          <label for="weightImperial">Weight:</label>
+          <input type="number" id="weightImperial" min="1" placeholder="Weight in lbs" required>
+          <label for="heightImperialFeet">Height:</label>
           <div>
-            <label>Weight:</label>
-            <div>
-              <input type="number" id="weight" min="1" required>
-              <select id="weightUnit">
-                <option value="kg">kg</option>
-                <option value="lb">lb</option>
-              </select>
-            </div>
-          </div>
-          
-          <div>
-            <label>Height:</label>
-            <div>
-              <input type="number" id="height" min="1" required>
-              <select id="heightUnit">
-                <option value="cm">cm</option>
-                <option value="ft">ft</option>
-              </select>
-            </div>
-          </div>
-          
-  
-          <label>Activity Level:
-            <select id="activity" required>
-              <option value="1.2">Sedentary: little or no exercise</option>
-              <option value="1.375">Light: exercise 1–3 times/week</option>
-              <option value="1.55">Moderate: exercise 4–5 times/week</option>
-              <option value="1.725">Active: daily exercise or intense exercise 3–4 times/week</option>
-              <option value="1.9">Very Active: intense exercise 6–7 times/week</option>
-              <option value="2.0">Extra Active: very intense exercise daily or physical job</option>
+            <select id="heightImperialFeet" required>
+              <option value="4">4 ft</option>
+              <option value="5">5 ft</option>
+              <option value="6">6 ft</option>
+              <option value="7">7 ft</option>
             </select>
-          </label>
-  
-          <button type="submit">Calculate</button>
-        </form>
-      </div>
-  
-      <!-- Results Section -->
-      <div class="results-section" id="results">
-        <h2>Your Results</h2>
-        <p>Maintenance Calories: <strong>0</strong> kcal</p>
-      </div>
+            <select id="heightImperialInches" required>
+              <option value="0">0 in</option>
+              <option value="1">1 in</option>
+              <option value="2">2 in</option>
+              <option value="3">3 in</option>
+              <option value="4">4 in</option>
+              <option value="5">5 in</option>
+              <option value="6">6 in</option>
+              <option value="7">7 in</option>
+              <option value="8">8 in</option>
+              <option value="9">9 in</option>
+              <option value="10">10 in</option>
+              <option value="11">11 in</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Metric Inputs -->
+        <div id="metricInputs" class="unit-inputs hidden">
+          <label for="weightMetric">Weight:</label>
+          <input type="number" id="weightMetric" min="1" placeholder="Weight in kg" required>
+          <label for="heightMetric">Height:</label>
+          <input type="number" id="heightMetric" min="1" placeholder="Height in cm" required>
+        </div>
+
+        <!-- Activity Level -->
+        <label for="activity">Activity Level:</label>
+        <select id="activity" required>
+          <option value="1.2">Sedentary: little or no exercise</option>
+          <option value="1.375">Light: exercise 1–3 times/week</option>
+          <option value="1.55">Moderate: exercise 4–5 times/week</option>
+          <option value="1.725">Active: daily exercise or intense exercise 3–4 times/week</option>
+          <option value="1.9">Very Active: intense exercise 6–7 times/week</option>
+          <option value="2.0">Extra Active: very intense exercise daily or physical job</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+      </form>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section" id="results">
+      <h2>Your Results</h2>
+      <p>Maintenance Calories: <strong>0</strong> kcal</p>
     </div>
   </div>
-  
+
   <script src="script.js"></script>
-  
+
 </body>
 </html>
