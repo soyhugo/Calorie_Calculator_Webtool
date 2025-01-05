@@ -42,8 +42,35 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.href = 'formulas.html';
   });
 
+  // Initialize form inputs
+  function initializeForm() {
+    document.getElementById('imperialInputs').classList.remove('hidden');
+    document.getElementById('metricInputs').classList.add('hidden');
+    document.getElementById('weightImperial').required = true;
+    document.getElementById('heightImperialFeet').required = true;
+    document.getElementById('heightImperialInches').required = true;
+    document.getElementById('weightMetric').required = false;
+    document.getElementById('heightMetric').required = false;
+  }
+
+  initializeForm();
+
   // Form submission functionality
   document.getElementById('imperialTab').addEventListener('click', function () {
+    const weightMetric = parseFloat(document.getElementById('weightMetric').value);
+    const heightMetric = parseFloat(document.getElementById('heightMetric').value);
+
+    if (!isNaN(weightMetric)) {
+      document.getElementById('weightImperial').value = Math.round(weightMetric * 2.20462);
+    }
+    if (!isNaN(heightMetric)) {
+      const totalInches = Math.round(heightMetric / 2.54);
+      const feet = Math.floor(totalInches / 12);
+      const inches = totalInches % 12;
+      document.getElementById('heightImperialFeet').value = feet;
+      document.getElementById('heightImperialInches').value = inches;
+    }
+
     document.getElementById('imperialInputs').classList.remove('hidden');
     document.getElementById('metricInputs').classList.add('hidden');
     document.getElementById('weightImperial').required = true;
@@ -56,6 +83,18 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.getElementById('metricTab').addEventListener('click', function () {
+    const weightImperial = parseFloat(document.getElementById('weightImperial').value);
+    const heightFeet = parseInt(document.getElementById('heightImperialFeet').value);
+    const heightInches = parseInt(document.getElementById('heightImperialInches').value);
+
+    if (!isNaN(weightImperial)) {
+      document.getElementById('weightMetric').value = Math.round(weightImperial / 2.20462);
+    }
+    if (!isNaN(heightFeet) && !isNaN(heightInches)) {
+      const totalCm = Math.round((heightFeet * 12 + heightInches) * 2.54);
+      document.getElementById('heightMetric').value = totalCm;
+    }
+
     document.getElementById('metricInputs').classList.remove('hidden');
     document.getElementById('imperialInputs').classList.add('hidden');
     document.getElementById('weightImperial').required = false;
