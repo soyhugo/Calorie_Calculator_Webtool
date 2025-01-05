@@ -454,6 +454,13 @@ section {
 section h2 {
   font-size: 1.5rem;
   color: #007bff;
+  margin-bottom: 10px;
+}
+
+section h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 5px;
 }
 
 section p {
@@ -467,6 +474,11 @@ section ul {
   margin-top: 10px;
   padding-left: 20px;
   color: #555;
+}
+
+section ul ul {
+  list-style-type: circle;
+  margin-top: 5px;
 }
 
 button {
@@ -491,8 +503,6 @@ button:hover {
   }
 }
 
-
-
 /* Dark Mode for Formula Library */
 body.dark-mode {
   background-color: #121212;
@@ -501,6 +511,7 @@ body.dark-mode {
 
 body.dark-mode h1,
 body.dark-mode h2,
+body.dark-mode h3,
 body.dark-mode p,
 body.dark-mode ul li {
   color: #f1f1f1;
